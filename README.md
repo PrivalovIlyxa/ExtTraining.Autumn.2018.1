@@ -1,6 +1,6 @@
 # ExtTraining.Autumn.2018.1
 
-1. Для объектов класса Book, у которого есть свойства Title, Author, Year, PublishingHous, Edition, Pages и Price реализовать
+1. Для объектов класса Book, у которого есть строковые Title, Author, Year, PublishingHous, Edition, Pages и Price реализовать
 возможность строкового представления различного вида. Например, для объекта со значениями
     Title = "C# in Depth", 
     Author = "Jon Skeet", 
