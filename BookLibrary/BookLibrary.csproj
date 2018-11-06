@@ -42,12 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
-    <Compile Include="Formatters\TitleOnlyFormatter.cs" />
-    <Compile Include="Formatters\TitleYearPublisherFormatter.cs" />
-    <Compile Include="Formatters\TitleAuthorFormatter.cs" />
-    <Compile Include="Formatters\TitleAuthorYearFormatter.cs" />
-    <Compile Include="Formatters\FullDescriptionFormatter.cs" />
-    <Compile Include="IFormatter.cs" />
+    <Compile Include="BookFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

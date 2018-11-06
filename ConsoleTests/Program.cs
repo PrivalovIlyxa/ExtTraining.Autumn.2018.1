@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BookLibrary;
-using BookLibrary.Formatters;
 using StringExtension;
 
 namespace ConsoleTests
@@ -13,7 +12,8 @@ namespace ConsoleTests
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("1AeF101".ToDecimal(2));
+            Book book = new Book("John Skeet", "C# in Depth", "Manning", 2019, 4, 900, 40m);
+            book.ToFormattedString("TA", new BookFormatter());
         }
     }
 }

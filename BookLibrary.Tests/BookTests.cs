@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BookLibrary;
-using BookLibrary.Formatters;
 
 namespace BookLibrary.Tests
 {
@@ -14,17 +13,19 @@ namespace BookLibrary.Tests
     {
         Book book = new Book("John Skeet", "C# in Depth", "Manning", 2019, 4, 900, 40m);
 
-        [Test]
-        public void ToFormattedString_FullDescription_ReturnsFormattedString()
+        [TestCase("John Skeet, C# in Depth, 2019, \"Manning\"", "ATYPH")]
+        [TestCase("John Skeet, C# in Depth, 2019", "ATY")]
+        [TestCase("John Skeet, C# in Depth", "AT")]
+        [TestCase("C# in Depth", "T")]
+        public void ToFormattedString_AuthorTitleYearPubH_ReturnsFormattedString(string arranged, string format)
         {
-            Assert.AreEqual(book.ToFormattedString(new FullDescriptionFormatter()),
-                "John Skeet, C# in Depth, 2019, \"Manning\"");
+            Assert.AreEqual(book.ToFormattedString(format, new BookFormatter()), arranged);
         }
 
-        [Test]
-        public void ToFormattedString_TitleOnly_ReturnsFormattedString()
+        [TestCase("TA")]
+        public void ToFormattedString_InvalidFormatter_ReturnsStrandartToString(string format)
         {
-            Assert.AreEqual(book.ToFormattedString(new TitleOnlyFormatter()), "C# in Depth");
+            Assert.AreEqual(book.ToString(), book.ToFormattedString(format, new BookFormatter()));
         }
     }
 }

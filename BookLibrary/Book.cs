@@ -16,6 +16,16 @@ namespace BookLibrary
         private int _pages;
         private decimal _price;
 
+        /// <summary>
+        /// Initializes the new instance of book.
+        /// </summary>
+        /// <param name="author"></param>
+        /// <param name="title"></param>
+        /// <param name="publishingHouse"></param>
+        /// <param name="year"></param>
+        /// <param name="edition"></param>
+        /// <param name="pages"></param>
+        /// <param name="price"></param>
         public Book(string author, string title, string publishingHouse,
             int year, int edition, int pages, decimal price)
         {
@@ -42,9 +52,9 @@ namespace BookLibrary
         /// </summary>
         /// <param name="formatter"></param>
         /// <returns></returns>
-        public string ToFormattedString(IFormatter formatter)
+        public string ToFormattedString(string format, IFormatProvider formatProvider)
         {
-            return formatter.Form(this);
+            return String.Format(new BookFormatter(), "{0:" + format + "}", this);
         }
     }
 }
